@@ -12,6 +12,7 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   bool _likethis = false;
   int _indexSelection = 0;
+  Color appBarColor = Colors.blueAccent;
 
   @override
   Widget build(BuildContext context) {
@@ -20,6 +21,7 @@ class _HomePageState extends State<HomePage> {
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
+        backgroundColor: appBarColor,
         title: Text("Bonjour"),
         centerTitle: true,
         leading: IconButton(
@@ -37,7 +39,11 @@ class _HomePageState extends State<HomePage> {
         elevation: 10,
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: like,
+        onPressed: (){
+          setState(() {
+            appBarColor = Colors.green;
+          });
+        },
         backgroundColor: Colors.red,
         child: Icon(Icons.add, size: 50,),
       ),
@@ -56,10 +62,18 @@ class _HomePageState extends State<HomePage> {
         selectedItemColor: Colors.yellow,
       ),
       body: Container(
-        color:  Colors.green,
-        margin: EdgeInsets.all(10),
-        height: size.width / 4,
-        width: size.width / 4,
+        color:  Colors.blue,
+        width: 200,
+        height: 100,
+        child: Text("Bonjourkjdojf odj fdjg fdj gdfog eff ezf ezf ez",
+          style: TextStyle(
+            color: Colors.brown,
+            fontSize: 30,
+            fontStyle: FontStyle.italic,
+            fontFamily: "Fruktur"
+          ),
+          overflow: TextOverflow.visible,
+        ),
       ),
     );
   }
