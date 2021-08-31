@@ -61,20 +61,29 @@ class _HomePageState extends State<HomePage> {
         currentIndex: _indexSelection,
         selectedItemColor: Colors.yellow,
       ),
-      body: Container(
-        color:  Colors.blue,
-        width: 200,
-        height: 100,
-        child: Text("Bonjourkjdojf odj fdjg fdj gdfog eff ezf ezf ez",
-          style: TextStyle(
-            color: Colors.brown,
-            fontSize: 30,
-            fontStyle: FontStyle.italic,
-            fontFamily: "Fruktur"
-          ),
-          overflow: TextOverflow.visible,
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.spaceAround ,
+          children: [
+            Text("Quel langage préférez vous ?"),
+            Container(
+              color: Colors.red,
+              height: size.height/10,
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  Container(height: size.height/15,width: size.height/15, color: Colors.yellow,),
+                  Container(height: size.height/15,width: size.height/15, color: Colors.blue,),
+                  Container(height: size.height/15,width: size.height/15, color: Colors.lightBlue,),
+                  Container(height: size.height/15,width: size.height/15, color: Colors.green,),
+                ],
+              ),
+            ),
+            Container(color: Colors.yellow,height: size.height/10,),
+            Container(color: Colors.green,height: size.height/10,),
+          ],
         ),
-      ),
+      )
     );
   }
 
