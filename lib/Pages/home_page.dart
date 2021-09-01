@@ -66,15 +66,52 @@ class _HomePageState extends State<HomePage> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceAround ,
           children: [
-            Card(
-              elevation: 5,
-              child: Container(
-                width: size.width / 1.5,
-                height: size.width / 1.5,
-                child: Icon(CupertinoIcons.home),
-                alignment: Alignment(-0.2,0.5),
+            ElevatedButton(
+                onPressed: (){
+                  print("Elevetaed Button");
+                },
+                child: Text("Elevated Button")
+            ),
+            CupertinoButton(
+              color: Colors.blue,
+                child: Text("CupertinoButton"),
+                onPressed: (){
+                  print("CupertinoButton");
+                }
+            ),
+            TextButton(
+                onPressed: (){
+                  print("TextButton");
+                },
+                child: Text("TextButton"),
+              style: ButtonStyle(
+
+                backgroundColor: MaterialStateProperty.all<Color>(Colors.green)
               ),
-            )
+            ),
+            IconButton(
+                onPressed: (){
+                  print("IconButton");
+                },
+                icon: Icon(Icons.thumb_down),
+                iconSize: 50,
+            ),
+            OutlinedButton(
+                onPressed: null,
+              child: Text("OutlinedButton"),
+            ),
+            InkWell(
+              child: Container(
+                width: 100,
+                child: Text("Cliquez moi"),
+                color: Colors.pink,
+              ) ,
+              onLongPress: () async{
+                await Future.delayed(Duration(seconds: 3));
+                print("Longpress InkWell");
+              },
+            ),
+
           ],
         ),
       )
