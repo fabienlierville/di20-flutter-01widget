@@ -79,8 +79,19 @@ class _HomePageState extends State<HomePage> {
                 ],
               ),
             ),
-            Container(color: Colors.yellow,height: size.height/10,),
+            Padding(
+              padding: EdgeInsets.only(top: 20, bottom: 10),
+              child: Container(color: Colors.yellow,height: size.height/10,),
+            ),
             Container(color: Colors.green,height: size.height/10,),
+            Expanded(
+              flex: 10,
+                child: Container(color: Colors.black)
+            ),
+            Expanded(
+              flex: 4,
+                child: Container(color: Colors.green)
+            ),
           ],
         ),
       )
