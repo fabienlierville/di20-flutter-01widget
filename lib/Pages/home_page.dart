@@ -1,5 +1,6 @@
 import 'dart:io';
 
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class HomePage extends StatefulWidget {
@@ -70,10 +71,8 @@ class _HomePageState extends State<HomePage> {
               child: Container(
                 width: size.width / 1.5,
                 height: size.width / 1.5,
-                child: Image.asset(
-                    "Assets/Img/chat.jpg",
-                  fit: BoxFit.fill,
-                ),
+                child: Icon(CupertinoIcons.home),
+                alignment: Alignment(-0.2,0.5),
               ),
             )
           ],
