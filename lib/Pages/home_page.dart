@@ -65,33 +65,17 @@ class _HomePageState extends State<HomePage> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceAround ,
           children: [
-            Text("Quel langage préférez vous ?"),
-            Container(
-              color: Colors.red,
-              height: size.height/10,
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: [
-                  Container(height: size.height/15,width: size.height/15, color: Colors.yellow,),
-                  Container(height: size.height/15,width: size.height/15, color: Colors.blue,),
-                  Container(height: size.height/15,width: size.height/15, color: Colors.lightBlue,),
-                  Container(height: size.height/15,width: size.height/15, color: Colors.green,),
-                ],
+            Card(
+              elevation: 5,
+              child: Container(
+                width: size.width / 1.5,
+                height: size.width / 1.5,
+                child: Image.asset(
+                    "Assets/Img/chat.jpg",
+                  fit: BoxFit.fill,
+                ),
               ),
-            ),
-            Padding(
-              padding: EdgeInsets.only(top: 20, bottom: 10),
-              child: Container(color: Colors.yellow,height: size.height/10,),
-            ),
-            Container(color: Colors.green,height: size.height/10,),
-            Expanded(
-              flex: 10,
-                child: Container(color: Colors.black)
-            ),
-            Expanded(
-              flex: 4,
-                child: Container(color: Colors.green)
-            ),
+            )
           ],
         ),
       )
