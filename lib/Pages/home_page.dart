@@ -1,5 +1,7 @@
 import 'dart:io';
 
+import 'package:first/Widgets/custom_button.dart';
+import 'package:first/Widgets/custom_text.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -14,6 +16,8 @@ class _HomePageState extends State<HomePage> {
   bool _likethis = false;
   int _indexSelection = 0;
   Color appBarColor = Colors.blueAccent;
+  Color raisedColor = Colors.black;
+  int value = 0;
 
   @override
   Widget build(BuildContext context) {
@@ -70,7 +74,10 @@ class _HomePageState extends State<HomePage> {
                 onPressed: (){
                   print("Elevetaed Button");
                 },
-                child: Text("Elevated Button")
+                child: Text("Elevated Button", style: TextStyle(color: Colors.blue),),
+              style: ButtonStyle(
+                backgroundColor: MaterialStateProperty.all(getColor())
+              ),
             ),
             CupertinoButton(
               color: Colors.blue,
@@ -92,18 +99,26 @@ class _HomePageState extends State<HomePage> {
             IconButton(
                 onPressed: (){
                   print("IconButton");
+                  setState(() {
+                    raisedColor = Colors.green;
+                  });
                 },
                 icon: Icon(Icons.thumb_down),
                 iconSize: 50,
             ),
             OutlinedButton(
-                onPressed: null,
-              child: Text("OutlinedButton"),
+                onPressed: (){
+                  setState(() {
+                    //raisedColor = Colors.orange;
+                    value=3;
+                  });
+                },
+              child: CustomText("Coucou",size: 15.0, myColor: Colors.blue,),
             ),
             InkWell(
               child: Container(
                 width: 100,
-                child: Text("Cliquez moi"),
+                child: myText("Cliquez moi", Colors.white, 50.0),
                 color: Colors.pink,
               ) ,
               onLongPress: () async{
@@ -111,7 +126,9 @@ class _HomePageState extends State<HomePage> {
                 print("Longpress InkWell");
               },
             ),
-
+            CustomButton(buttonText: "OK", onPress: (){
+              print("CustomButton");
+            })
           ],
         ),
       )
@@ -123,6 +140,30 @@ class _HomePageState extends State<HomePage> {
       _likethis = !_likethis;
       print(_likethis);
     });
+  }
+
+  Color getColor(){
+    if(value == 1){
+      return Colors.green;
+    }
+    if(value == 2){
+      return Colors.red;
+    }
+    if(value == 3){
+      return Colors.orange;
+    }
+    return Colors.black;
+  }
+
+  Text myText(String data, Color color, double size){
+    return Text(
+      data,
+      style: TextStyle(
+        color: color,
+        fontSize: size
+      ),
+    );
+
   }
 
 }
